@@ -18,20 +18,16 @@ public class Ch_6_Questions {
         System.out.print(stringToInt(str));
         System.out.print(intToString(A) + "\n");
         char [] charA = {'a','c','d','b','b','c','a'};
-        System.out.print((intToString(replaceARemove(7, charA)) + "\n"));
+        charA = replaceARemove(7,charA);
+        System.out.print(charA.toString() + "\n");
         System.out.print(charA);
         System.out.print("\n");
-        char [] sent = {'M','a','r','y',' ','a','n','d',' ','b','o','b'};
+        char [] sent = {'M','a','r','y',' ','a','n','d',' ','B','o','b'};
         System.out.print(sent);
         System.out.print("\n");
-        reverseWords(sent);
+       sent =  reverseWords(sent);
         System.out.print(sent);
         System.out.print("\n");
-
-
-
-
-
     }
     //6.1: Math.abs, StringBuilder.append; .reverse; .toString
     public static String intToString(Integer A){
@@ -71,7 +67,7 @@ public class Ch_6_Questions {
 
     }
     //6.4 offset indexes
-    public static final int replaceARemove(int size, char[] A){
+    public static char[] replaceARemove(int size, char[] A){
         int writer = 0;
         int countA = 0;
         //remove B's first.
@@ -95,17 +91,17 @@ public class Ch_6_Questions {
                 A[revWriter--] = A[writer];
             }
         }
-        return finalsize;
+        return A;
     }
 
-    public static void reverseWords(char[] w){
+    public static char[] reverseWords(char[] w){
         //start and end points for individual words.
         int wStart = 0;
         int wEnd = 0;
         int size = w.length - 1;
         //first reverse w.
         reverse(w, 0, size);
-        System.out.print(w);
+        //System.out.print(w);
         System.out.print("\n");
         //then reverse each word as delineated by whitespace.
         while(wStart < size){
@@ -118,6 +114,7 @@ public class Ch_6_Questions {
             }
             reverse(w, wStart,wEnd - 1 );
         }
+        return w;
 
     }
     //simple reverse method.
